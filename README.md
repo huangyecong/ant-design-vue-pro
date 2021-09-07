@@ -1,4 +1,5 @@
 # ant-design-vue-pro
+<<<<<<< HEAD
 
 ## Project setup
 ```
@@ -27,3 +28,6 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+=======
+ant-design-vue
+>>>>>>> 9265f25099ec74110fb648b318500638ac30297f
