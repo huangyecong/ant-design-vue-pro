@@ -6,6 +6,27 @@ Vue.use(VueRouter);
 
 const routes = [
   {
+    path: "/user",
+    // component: { render: (h) => h("router-view") }, //最终的template最终都会装变成render函数，这里将<router-view></router-view>渲染在视图中
+    component: () =>
+      import(/* webpackChunkName: "layout" */ "../layouts/UserLayOut.vue"),
+    redirect: "/user/login", //重定向
+    children: [
+      {
+        path: "login",
+        name: "Login",
+        component: () =>
+          import(/* webpackChunkName: "layout" */ "../views/User/Login.vue"),
+      },
+      {
+        path: "register",
+        name: "Register",
+        component: () =>
+          import(/* webpackChunkName: "layout" */ "../views/User/Register.vue"),
+      },
+    ],
+  },
+  {
     path: "/",
     name: "Home",
     component: Home,
