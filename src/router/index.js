@@ -1,5 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import NProgress from "nprogress"; //引入进度条NProgress插件
+import "nprogress/nprogress.css"; //NProgress样式
 import NotFound from "../views/404.vue";
 
 Vue.use(VueRouter);
@@ -106,6 +108,15 @@ const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes,
+});
+
+// 全局路由守卫
+router.beforeEach((to, from, next) => {
+  NProgress.start();
+  next(); //正常，进入下一个函数
+});
+router.afterEach(() => {
+  NProgress.done();
 });
 
 export default router;
