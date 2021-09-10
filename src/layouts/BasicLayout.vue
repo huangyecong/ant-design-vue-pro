@@ -22,6 +22,8 @@
         </a-layout-footer>
       </a-layout>
     </a-layout>
+    <!-- 修改主题 -->
+    <SettingDrawer />
   </div>
 </template>
 
@@ -29,12 +31,14 @@
 import Header from "./Header.vue";
 import Footer from "./Footer.vue";
 import SideMenu from "./SideMenu.vue";
+import SettingDrawer from "../components/SettingDrawer.vue";
 export default {
   name: "BasicLayout",
   components: {
     Header,
     Footer,
     SideMenu,
+    SettingDrawer,
   },
   data() {
     return {
