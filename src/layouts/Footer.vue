@@ -1,5 +1,5 @@
 <template>
-  <div>Footer page</div>
+  <div>Ant Design Vue @2021 Created by Huangyecong</div>
 </template>
 
 <script>
