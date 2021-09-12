@@ -79,10 +79,13 @@ export default {
 }
 .logo {
   height: 32px;
-  background: rgba(255, 255, 255, 0.2);
   margin: 16px;
-  color: white;
   line-height: 32px;
   text-align: center;
+  overflow: hidden;
+}
+/* >>> 深度作用选择器 ，只作用于css，但如果是sass/less的话可能无法识别，这时候需要使用 /deep/ 选择器。 */
+.nav-theme-dark >>> .logo {
+  color: white;
 }
 </style>

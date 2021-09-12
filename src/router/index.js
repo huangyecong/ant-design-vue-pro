@@ -112,8 +112,11 @@ const router = new VueRouter({
 
 // 全局路由守卫
 router.beforeEach((to, from, next) => {
-  NProgress.start();
-  next(); //正常，进入下一个函数
+  // to.path != from.path,处理主题设置存在加载进度条的情况
+  if (to.path != from.path) {
+    NProgress.start();
+    next(); //正常，进入下一个函数
+  }
 });
 router.afterEach(() => {
   NProgress.done();
