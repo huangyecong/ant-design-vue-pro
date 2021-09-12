@@ -1,7 +1,13 @@
 <template>
   <div :class="[`nav-theme-${navTheme}`, `nav-theme-${navLayout}`]">
     <a-layout id="components-layout-demo-side" style="min-height: 100vh">
-      <a-layout-sider v-model="collapsed" :trigger="null" collapsible>
+      <a-layout-sider
+        v-if="navLayout === 'left'"
+        v-model="collapsed"
+        :trigger="null"
+        collapsible
+        :theme="navTheme"
+      >
         <div class="logo">HYC{{ navTheme }}-{{ navLayout }}</div>
         <SideMenu />
       </a-layout-sider>
