@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div :class="[`nav-theme-${navTheme}`, `nav-theme-${navLayout}`]">
     <a-layout id="components-layout-demo-side" style="min-height: 100vh">
       <a-layout-sider v-model="collapsed" :trigger="null" collapsible>
-        <div class="logo">HYC</div>
+        <div class="logo">HYC{{ navTheme }}-{{ navLayout }}</div>
         <SideMenu />
       </a-layout-sider>
       <a-layout>
@@ -34,11 +34,22 @@ import SideMenu from "./SideMenu.vue";
 import SettingDrawer from "../components/SettingDrawer.vue";
 export default {
   name: "BasicLayout",
+  computed: {
+    navTheme() {
+      return this.$route.query.navTheme || "dark";
+    },
+    navLayout() {
+      return this.$route.query.navLayout || "left";
+    },
+  },
   components: {
     Header,
     Footer,
     SideMenu,
     SettingDrawer,
+  },
+  created() {
+    console.log(this.$route.query);
   },
   data() {
     return {

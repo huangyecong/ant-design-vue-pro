@@ -60,6 +60,7 @@ export default {
     // 比如：/dashboard/analysis?navTheme=dark&navLayout=left
     handleSettingChange(type, value) {
       this.$router.push({ query: { ...this.$route.query, [type]: value } });
+      console.log(this.$route.query);
     },
   },
 };
