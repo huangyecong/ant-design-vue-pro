@@ -17,7 +17,6 @@
       <div>
         <h2>整体风格</h2>
         <a-radio-group
-          :value="$route.query.navTheme || 'dark'"
           name="radioGroup"
           @change="(e) => handleSettingChange('navTheme', e.target.value)"
         >
@@ -59,8 +58,9 @@ export default {
     // 主题设置,选择主题相关参数保存到路由中
     // 比如：/dashboard/analysis?navTheme=dark&navLayout=left
     handleSettingChange(type, value) {
+      console.log(type, value);
       this.$router.push({ query: { ...this.$route.query, [type]: value } });
-      console.log(this.$route.query);
+      console.log(this.$route);
     },
   },
 };
