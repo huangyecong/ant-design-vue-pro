@@ -9,6 +9,7 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/user",
+    isHidden: true,
     // component: { render: (h) => h("router-view") }, //最终的template最终都会装变成render函数，这里将<router-view></router-view>渲染在视图中
     component: () =>
       import(/* webpackChunkName: "layout" */ "../layouts/UserLayOut.vue"),
@@ -42,11 +43,13 @@ const routes = [
       {
         path: "dashboard",
         name: "Dashboard",
+        meta: { icon: "dashboard", title: "仪表盘" },
         component: { render: (h) => h("router-view") },
         children: [
           {
             path: "analysis",
             name: "Analysis",
+            meta: { title: "分析页" },
             component: () =>
               import(
                 /* webpackChunkName: "dashboard" */ "../views/Dashboard/Analysis"
@@ -60,17 +63,20 @@ const routes = [
   {
     path: "/form",
     name: "Form",
+    meta: { icon: "form", title: "表单" },
     component: { render: (h) => h("router-view") },
     children: [
       {
         path: "basic-form",
         name: "basicform",
+        meta: { title: "基础表单" },
         component: () =>
           import(/* webpackChunkName: "form" */ "../views/Form/BasicForm"),
       },
       {
         path: "step-form",
         name: "stepform",
+        meta: { title: "分布表单" },
         component: () =>
           import(/* webpackChunkName: "form" */ "../views/Form/StepForm"),
         children: [
@@ -99,6 +105,7 @@ const routes = [
   // 404
   {
     path: "*",
+    isHidden: true,
     name: "404",
     component: NotFound,
   },
