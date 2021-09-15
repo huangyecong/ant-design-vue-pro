@@ -7,6 +7,7 @@
         :trigger="null"
         collapsible
         :theme="navTheme"
+        width="256px"
       >
         <div class="logo">HYC{{ navTheme }}-{{ navLayout }}</div>
         <SideMenu />

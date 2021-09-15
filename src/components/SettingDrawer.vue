@@ -17,6 +17,7 @@
       <div>
         <h2>整体风格</h2>
         <a-radio-group
+          defaultValue="dark"
           name="radioGroup"
           @change="(e) => handleSettingChange('navTheme', e.target.value)"
         >
@@ -25,7 +26,7 @@
         </a-radio-group>
         <h2>导航模式</h2>
         <a-radio-group
-          :value="$route.query.navLayout || 'left'"
+          defaultValue="left"
           name="radioGroup"
           @change="(e) => handleSettingChange('navLayout', e.target.value)"
         >
