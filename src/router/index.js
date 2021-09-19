@@ -9,7 +9,7 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/user",
-    isHidden: true,
+    hideInMenu: true,
     // component: { render: (h) => h("router-view") }, //最终的template最终都会装变成render函数，这里将<router-view></router-view>渲染在视图中
     component: () =>
       import(/* webpackChunkName: "layout" */ "../layouts/UserLayOut.vue"),
@@ -76,6 +76,7 @@ const routes = [
       {
         path: "step-form",
         name: "stepform",
+        hideChildrenInMenu: true,
         meta: { title: "分布表单" },
         component: () =>
           import(/* webpackChunkName: "form" */ "../views/Form/StepForm"),
@@ -105,7 +106,7 @@ const routes = [
   // 404
   {
     path: "*",
-    isHidden: true,
+    hideInMenu: true,
     name: "404",
     component: NotFound,
   },
